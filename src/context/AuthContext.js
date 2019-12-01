@@ -13,21 +13,19 @@ const authReducer = (state, action) => {
   }
 }
 
-const signup = (dispatch) => {
-  return async ({ email, password }) => {
-    console.log('signup(params) ', email, password)
-    // make api request to sign up with that email and password
-    // if we sign up, modify our state, and say that we are authenticated
-    // if signing up fails, we probably need to reflect and error message (somewhere)
-    try {
-      const response = await trackerApi.post('/signup', { email, password })
-      console.log('signup(ok) => ', response.data)
-      await AsyncStorage.setItem('token', response.data.token)
-      dispatch({ type: 'signup', payload: response.data.token })
-    } catch(err) {
-      console.log('signup(err) => ', err.response.data)
-      dispatch({ type: 'add_error', payload: 'Something went wrong with sign up' })
-    }
+const signup = (dispatch) => async ({ email, password }) => {
+  //console.log('signup(params) ', email, password)
+  // make api request to sign up with that email and password
+  // if we sign up, modify our state, and say that we are authenticated
+  // if signing up fails, we probably need to reflect and error message (somewhere)
+  try {
+    const response = await trackerApi.post('/signup', { email, password })
+    //console.log('signup(ok) => ', response.data)
+    await AsyncStorage.setItem('token', response.data.token)
+    dispatch({ type: 'signup', payload: response.data.token })
+  } catch(err) {
+    //console.log('signup(err) => ', err.response.data)
+    dispatch({ type: 'add_error', payload: 'Something went wrong with sign up' })
   }
 }
 
