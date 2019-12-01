@@ -10,6 +10,7 @@ const authReducer = (state, action) => {
 
 const signup = (dispatch) => {
   return async ({ email, password }) => {
+    console.log('signup(params) ', email, password)
     // make api request to sign up with that email and password
     // if we sign up, modify our state, and say that we are authenticated
     // if signing up fails, we probably need to reflect and error message (somewhere)
@@ -18,7 +19,7 @@ const signup = (dispatch) => {
       console.log('signup(ok) => ', response.data)
 
     } catch(err) {
-      console.log('signup(err) => ', err)
+      console.log('signup(err) => ', err.response.data)
     }
   }
 }
