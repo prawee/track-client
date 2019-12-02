@@ -16,6 +16,10 @@ const TrackCreateScreen = () => {
     }
   }
 
+  useEffect(() => {
+    startWatching()
+  }, [])
+
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
       <Text h3>Create a Track</Text>
