@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet } from 'react-native'
-import MapView from 'react-native-maps'
+import MapView, { Polyline } from 'react-native-maps'
 
 const Map = () => {
   return (
@@ -12,7 +12,9 @@ const Map = () => {
         latitudeDelta: 0.01,
         longitudeDelta: 0.01
       }}
-    />
+    >
+      <Polyline />
+    </MapView>
   )
 }
 
