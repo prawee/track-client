@@ -14,14 +14,17 @@ const TrackCreateScreen = () => {
   const startWatching = async () => {
     try {
       await requestPermissionsAsync()
-      await watchPositionAsync({
-        accuracy: Accuracy.BestForNavigation,
-        timeInterval: 1000,
-        distanceInterval: 10
-      }, (location) => {
-        // console.log(location)
-        addLocation(location)
-      })
+      await watchPositionAsync(
+        {
+          accuracy: Accuracy.BestForNavigation,
+          timeInterval: 5000,
+          distanceInterval: 10
+        }, 
+        location => {
+          // console.log('1 => ', location)
+          addLocation(location)
+        }
+      )
     } catch(e) {
       console.log(e)
       setErr(e)
