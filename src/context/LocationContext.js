@@ -4,12 +4,16 @@ const locationReducer = (state, action) => {
   switch(action.type) {
     case 'add_current_location':
       return { ...state, currentLocation: action.payload }
+    case 'start_recording':
+      return { ...state, recording: true }
     default:
       return state
   }
 }
 
-const startRecording = dispatch => () => {}
+const startRecording = dispatch => () => {
+  dispatch({ type: 'start_recording' })
+}
 
 const stopRecording = dispatch => () => {}
 
