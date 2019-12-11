@@ -24,6 +24,7 @@ const TrackDetailScreen = ({ navigation }) => {
           latitudeDelta: 0.01,
           ...initialCoords
         }}
+        style={styles.map}
       >
         <Polyline coordinates={track.locations.map(loc => loc.coords)} />
       </MapView>
@@ -31,6 +32,10 @@ const TrackDetailScreen = ({ navigation }) => {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  map: {
+    height: 300
+  }
+})
 
 export default TrackDetailScreen
