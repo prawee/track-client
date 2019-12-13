@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "expo-tracks",
+    "description": "point of sales",
     "slug": "expo-tracks",
     "privacy": "public",
     "sdkVersion": "35.0.0",
